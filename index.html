@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For Alisha ❤️</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      height: 100vh;
+      background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.5)), 
+                  url('https://i.imgur.com/0yvdE.jpg') center/cover no-repeat fixed;
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      color: #fff;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .heart {
+      position: absolute;
+      font-size: 32px;
+      color: #ff69b4;
+      text-shadow: 0 0 20px #ff1493;
+      animation: floatHeart linear infinite;
+    }
+
+    @keyframes floatHeart {
+      0% { transform: translateY(110vh) rotate(0deg); opacity: 0; }
+      20% { opacity: 1; }
+      80% { opacity: 1; }
+      100% { transform: translateY(-140px) rotate(40deg); opacity: 0; }
+    }
+
+    .container {
+      background: rgba(0, 0, 0, 0.52);
+      backdrop-filter: blur(18px);
+      padding: 50px 40px;
+      border-radius: 30px;
+      max-width: 86%;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.7);
+      text-align: center;
+    }
+
+    #text {
+      font-size: 25px;
+      line-height: 1.8;
+      min-height: 280px;
+      text-shadow: 0 4px 15px rgba(0,0,0,0.85);
+    }
+
+    .couple {
+      font-size: 46px;
+      margin-top: 25px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div id="text"></div>
+    <div class="couple">💕 👩‍❤️‍👨 💕</div>
+  </div>
+
+  <script>
+    const fullMessage = `Alisha... Aapse baat karna har baar mera din badal deta hai. Aapki muskurahat aur baatein mujhe ek alag hi sukoon aur khushi deti hain. Pichhle kuch time se main notice kar raha hoon ki aap mere liye bahut important ho gayi hain. Har chhoti si baat mein aap yaad aa jaati hain aur dil khush ho jaata hai. Maine bahut socha aur ab dil yeh keh raha hai ki... Aap meri zindagi ka woh khoobsurat hissa ban sakti hain jiske saath har pal aur bhi pyara aur complete lage. Kya aap meri zindagi mein aur zyada jagah banaengi... aur hum saath mein yeh feeling ko badha sakein? 💕`;
+
+    let j = 0;
+    let displayedText = "";
+
+    function typeEffect() {
+      const textElement = document.getElementById("text");
+      if (j < fullMessage.length) {
+        displayedText += fullMessage.charAt(j);
+        textElement.innerHTML = displayedText + '<span style="color:#ffccdd;">|</span>';
+        j++;
+        setTimeout(typeEffect, 45);
+      } else {
+        textElement.innerHTML = displayedText;
+      }
+    }
+
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.innerHTML = "❤️";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = (Math.random() * 8 + 12) + "s";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 23000);
+    }
+
+    window.onload = () => {
+      typeEffect();
+      for (let i = 0; i < 12; i++) {
+        setTimeout(createHeart, i * 200);
+      }
+      setInterval(() => {
+        if (Math.random() > 0.35) createHeart();
+      }, 650);
+    };
+  </script>
+</body>
+</html>
